@@ -1,14 +1,15 @@
 import './App.css';
 import Header from "./components/Header/Header"
-import {getGeolocation} from "./map.service"
+import { getGeolocation } from "./map.service"
+import { getForecast } from "./weather.service"
 
 function App() {
 
   async function handleSubmit(ev) {
     ev.preventDefault()
-    console.log(ev.target[0].value)
     let location = await getGeolocation(ev.target[0].value)
-    console.log(location)
+    let forecast = await getForecast({coord: location, units: 'metric'})
+    console.log(forecast)
   }
 
   return (

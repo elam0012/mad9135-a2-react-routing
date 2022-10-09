@@ -9,5 +9,5 @@ export async function getGeolocation(location) {
       throw new Error(response.statusText);
   }
   const data = await response.json();
-  return { lat: data[0].lat, lon: data[0].lon };
+  return { lon: data[0].lon, lat: data[0].lat };
 }
