@@ -1,4 +1,4 @@
-const API_TOKEN = 'YOUR_TOKEN_GOES_HERE';
+const API_TOKEN = 'pk.0b1f8e9fd94ce33e86b94aa0a279c212';
 const BASE_URL = 'https://us1.locationiq.com/v1';
 
 export async function getGeolocation(location) {
