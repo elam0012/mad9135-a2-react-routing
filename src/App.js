@@ -4,6 +4,9 @@ import { getGeolocation } from "./map.service"
 import { getForecast } from "./weather.service"
 import {useEffect, useState} from "react"
 import Cards from './components/Cards/Cards';
+import Home from "./components/pages/Home/Home"
+import Daily from "./components/pages/Daily/Daily"
+import Hourly from './components/pages/Hourly/Hourly';
 
 function App() {
 
