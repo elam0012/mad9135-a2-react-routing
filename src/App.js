@@ -7,6 +7,7 @@ import Cards from './components/Cards/Cards';
 import Home from "./components/pages/Home/Home"
 import Daily from "./components/pages/Daily/Daily"
 import Hourly from './components/pages/Hourly/Hourly';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
+      <NavBar/>
 
       <p>Welcome to your favorite weather app. to find a wether information at any city in the world,
         please insert the city name including the province and country if needed, And git all the weather

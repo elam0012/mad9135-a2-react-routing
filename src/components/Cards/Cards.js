@@ -2,14 +2,14 @@ import React from "react"
 
 export default function Cards({data}) {
 
-  // let hourlyData = []
+  let hourlyData = []
   // if (Array.isArray(data)) {
-    let hourlyData = data.hourly.slice(0,6)
+    // let hourlyData = data.hourly.slice(0,6)
   // } 
 
-  // let dailyData = []
+  let dailyData = []
   // if (Array.isArray(data)) {
-    let dailyData = data.daily.slice(0,6)
+    // let dailyData = data.daily.slice(0,6)
   // } 
 
   // console.log(data.current.weather[0].icon)
@@ -22,7 +22,7 @@ export default function Cards({data}) {
       <p>Real Feel: {data.current.feels_like}</p>
       <p>Sunrise: {new Date(data.current.sunrise * 1000).toLocaleString("en-CA")}</p>
       <p>Sunset: {new Date(data.current.sunset * 1000).toLocaleString("en-CA")}</p>
-      <img src = {`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`} />
+      {/* <img src = {`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`} /> */}
       <h2>Next 6 Hours</h2>
       <p>{hourlyData.map((data) => {
         return (
@@ -31,7 +31,7 @@ export default function Cards({data}) {
             <p>Temp: {data.temp}</p>
             <p>Real Feel: {data.feels_like}</p>
             <p>Description: {data.weather[0].description}</p>
-            <img src = {`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} />
+            {/* <img src = {`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} /> */}
           </div>
         )
       })}</p>
@@ -45,7 +45,7 @@ export default function Cards({data}) {
             <p>Real Feel at day: {data.feels_like.day}</p>
             <p>Real Feel at night: {data.feels_like.night}</p>
             <p>Description: {data.weather[0].description}</p>
-            <img src = {`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} />
+            {/* <img src = {`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} /> */}
           </div>
         )
       })}</p>
