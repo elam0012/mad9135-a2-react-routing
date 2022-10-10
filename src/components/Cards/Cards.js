@@ -1,10 +1,14 @@
 import React from "react"
 
 export default function Cards({data}) {
-  // console.log(data.hourly.slice(0,6))
 
+  // let hourlyData = []
   // let hourlyData = data.hourly.slice(0,6)
-  // console.log("yasir", hourlyData)
+  // if (Array.isArray(data)) {
+    let hourlyData = data.hourly.slice(0,6)
+  // } 
+
+  console.log(data.hourly)
 
   return(
     <div>
@@ -14,7 +18,16 @@ export default function Cards({data}) {
       <p>Sunrise: {new Date(data.current.sunrise * 1000).toLocaleString("en-CA")}</p>
       <p>Sunset: {new Date(data.current.sunset * 1000).toLocaleString("en-CA")}</p>
       <h2>Next 6 Hours</h2>
-      {/* <p>Sunset: {hourlyData.map((data) => data.temp)}</p> */}
+      <p>{hourlyData.map((data) => {
+        return (
+          <div>
+            <p>Date, Time: {new Date(data.dt * 1000).toLocaleString("en-CA")}</p>
+            <p>Temp: {data.temp}</p>
+            <p>Real Feel: {data.feels_like}</p>
+            <p>Description: {data.weather[0].description}</p>
+          </div>
+        )
+      })}</p>
     </div>
   )
 }
