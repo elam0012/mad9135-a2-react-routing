@@ -8,16 +8,19 @@ import Daily from "./components/pages/Daily/Daily"
 import Hourly from './components/pages/Hourly/Hourly';
 import NavBar from './components/NavBar/NavBar';
 import Error from './components/pages/Error/Error';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
 
   const [searchValue, setSearchValue] = useState("")
   const [data, setData] = useState({current: {temp: 55}})
+  const [list, setList] = useLocalStorage("last3Searches", [])
 
   async function handleSubmit(ev) {
     ev.preventDefault()
     setSearchValue(ev.target[0].value)
+    setList(list.concat(ev.target[0].value))
   }
 
   useEffect(() => {
