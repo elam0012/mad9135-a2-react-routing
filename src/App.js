@@ -2,23 +2,42 @@ import './App.css';
 import Header from "./components/Header/Header"
 import { getGeolocation } from "./map.service"
 import { getForecast } from "./weather.service"
+import {useEffect, useState} from "react"
+import Cards from './components/Cards/Cards';
 
 function App() {
 
+  const [searchValue, setSearchValue] = useState("")
+  const [data, setData] = useState({current: {temp: 55}})
+
   async function handleSubmit(ev) {
     ev.preventDefault()
-    let location = await getGeolocation(ev.target[0].value)
-    let forecast = await getForecast({coord: location, units: 'metric'})
-    console.log(forecast)
+    setSearchValue(ev.target[0].value)
   }
+
+  useEffect(() => {
+    if(searchValue) {
+      getGeolocation(searchValue)
+        .then( location => getForecast({coord: location, units: 'metric'}))
+        .then( forecast => setData(forecast))
+    }
+  }, [searchValue])
+  
 
   return (
     <div className="App">
       <Header/>
+
+      <p>Welcome to your favorite weather app. to find a wether information at any city in the world,
+        please insert the city name including the province and country if needed, And git all the weather
+        information for that city. Enjoy the App!!</p>
+
       <form className='form' onSubmit={handleSubmit}>
         <input type="text"/>
         <button type='submit'>Submit</button>
       </form>
+
+      <Cards data = {data}/>
     </div>
   );
 }
