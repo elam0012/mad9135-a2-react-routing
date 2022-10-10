@@ -22,7 +22,6 @@ function App() {
     ev.preventDefault()
     setSearchValue(ev.target[0].value)
     setList(list.concat(ev.target[0].value))
-    // document.getElementById("myForm").reset()
     document.querySelector(".form").reset()
   }
 
@@ -54,9 +53,11 @@ function App() {
         <button type='submit'>Submit</button>
       </form>
 
-      {list.map((item) => (
-        <button key={item} onClick={handleButton}>{item}</button>
-      ))}
+      <aside className='aside'>
+        {list.map((item) => (
+          <button key={item} onClick={handleButton}>{item}</button>
+        ))}
+      </aside>
 
       <Routes>
         <Route path="/home" element={<Home data = {data}/>} />
