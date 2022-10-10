@@ -8,6 +8,8 @@ import Home from "./components/pages/Home/Home"
 import Daily from "./components/pages/Daily/Daily"
 import Hourly from './components/pages/Hourly/Hourly';
 import NavBar from './components/NavBar/NavBar';
+import Error from './components/pages/Error/Error';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
 
@@ -43,6 +45,13 @@ function App() {
       </form>
 
       <Cards data = {data}/>
+
+      <Routes>
+        <Route path="/home" element={<Home/>} />
+        <Route path='hourly' element={<Hourly/>}/>
+        <Route path='daily' element={<Daily/>}/>
+        <Route path="*" element={<Error />} />
+      </Routes>
     </div>
   );
 }
