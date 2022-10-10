@@ -16,11 +16,19 @@ function App() {
   const [searchValue, setSearchValue] = useState("")
   const [data, setData] = useState({current: {temp: 55}})
   const [list, setList] = useLocalStorage("last3Searches", [])
+  console.log(list)
 
   async function handleSubmit(ev) {
     ev.preventDefault()
     setSearchValue(ev.target[0].value)
     setList(list.concat(ev.target[0].value))
+    // document.getElementById("myForm").reset()
+    document.querySelector(".form").reset()
+  }
+
+  function handleButton(ev) {
+    console.log(ev.target.innerText)
+    setSearchValue(ev.target.innerText)
   }
 
   useEffect(() => {
@@ -45,6 +53,10 @@ function App() {
         <input type="text"/>
         <button type='submit'>Submit</button>
       </form>
+
+      {list.map((item) => (
+        <button key={item} onClick={handleButton}>{item}</button>
+      ))}
 
       <Routes>
         <Route path="/home" element={<Home data = {data}/>} />
