@@ -3,7 +3,6 @@ import Header from "./components/Header/Header"
 import { getGeolocation } from "./map.service"
 import { getForecast } from "./weather.service"
 import {useEffect, useState} from "react"
-import Cards from './components/Cards/Cards';
 import Home from "./components/pages/Home/Home"
 import Daily from "./components/pages/Daily/Daily"
 import Hourly from './components/pages/Hourly/Hourly';
@@ -44,12 +43,10 @@ function App() {
         <button type='submit'>Submit</button>
       </form>
 
-      <Cards data = {data}/>
-
       <Routes>
-        <Route path="/home" element={<Home/>} />
-        <Route path='hourly' element={<Hourly/>}/>
-        <Route path='daily' element={<Daily/>}/>
+        <Route path="/home" element={<Home data = {data}/>} />
+        <Route path='hourly' element={<Hourly data = {data}/>}/>
+        <Route path='daily' element={<Daily data = {data}/>}/>
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
