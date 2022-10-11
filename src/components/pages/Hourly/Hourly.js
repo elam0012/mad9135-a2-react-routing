@@ -1,13 +1,13 @@
 import React from "react"
 
-export default function Hourly({data}){
+export default function Hourly({data, searchValue}){
   // let hourlyData = []
   // if (Array.isArray(data)) {
     let hourlyData = data.hourly.slice(0,6)
   // } 
   return(
     <div>
-      <h2>Next 6 Hours</h2>
+      <h2> The next 6 hours weather forecast in {searchValue} </h2>
       {hourlyData.map((data, index) => {
         return (
           <ul key={index}>

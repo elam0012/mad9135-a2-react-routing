@@ -1,9 +1,9 @@
 import React from "react"
 
-export default function Home({data}){
+export default function Home({data, searchValue}){
   return(
     <div>
-      <h2>Current Weather</h2>
+      <h2>The current weather in {searchValue}</h2>
       <p>Temp: {data.current.temp}</p>
       <p>Real Feel: {data.current.feels_like}</p>
       <p>Sunrise: {new Date(data.current.sunrise * 1000).toLocaleString("en-CA")}</p>

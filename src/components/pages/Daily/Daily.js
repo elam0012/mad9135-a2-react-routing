@@ -1,13 +1,13 @@
 import React from "react"
 
-export default function Daily({data}){
+export default function Daily({data, searchValue}){
   // let dailyData = []
   // if (Array.isArray(data)) {
     let dailyData = data.daily.slice(0,6)
   // } 
   return(
     <div>
-      <h2>Next 6 Days</h2>
+      <h2>The next 6 days weather forecast is {searchValue}</h2>
       {dailyData.map((data, index) => {
         return (
           <ul key={index}>

@@ -16,24 +16,43 @@ function App() {
   const [searchValue, setSearchValue] = useState("")
   const [data, setData] = useState({current: {temp: 55}})
   const [list, setList] = useLocalStorage("last3Searches", [])
-  console.log(list)
 
-  async function handleSubmit(ev) {
+  useEffect(() => { // to setup the current or initial location
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) =>{
+      console.log(position.coords)
+      const location = { lon: position.coords.longitude, lat: position.coords.latitude }
+      getForecast({coord: location, units: 'metric'})
+        .then(forecast => setData(forecast))
+      setSearchValue("your location")
+      })
+    } 
+  //   else {
+  //   console.log("GeoLocation is not available")/* geolocation IS NOT available */
+  // }
+}, [])
+
+  function handleSubmit(ev) {
     ev.preventDefault()
+    if(ev.target[0].value == "") return
     setSearchValue(ev.target[0].value)
+    if (list.includes(ev.target[0].value)) { // to prevent duplication of buttons and their keys
+      document.querySelector(".form").reset()
+      return
+    }
+    if (list.length == 3)  setList(list.shift()) // maximize local storage elements to 3
     setList(list.concat(ev.target[0].value))
     document.querySelector(".form").reset()
   }
 
   function handleButton(ev) {
-    console.log(ev.target.innerText)
     setSearchValue(ev.target.innerText)
   }
 
   useEffect(() => {
     if(searchValue) {
-      getGeolocation(searchValue)
-        .then( location => getForecast({coord: location, units: 'metric'}))
+      getGeolocation(searchValue) // find coordinates for entered location
+        .then( location => getForecast({coord: location, units: 'metric'})) // find weather for that location
         .then( forecast => setData(forecast))
     }
   }, [searchValue])
@@ -46,7 +65,8 @@ function App() {
 
       <p>Welcome to your favorite weather app. to find a wether information at any city in the world,
         please insert the city name including the province and country if needed, And git all the weather
-        information for that city. Enjoy the App!!</p>
+        information for that city. Enjoy the App!! To start you can either insert your current location or allow the permission 
+        for our app to get it automatically </p>
 
       <form className='form' onSubmit={handleSubmit}>
         <input type="text"/>
@@ -60,9 +80,9 @@ function App() {
       </aside>
 
       <Routes>
-        <Route path="/home" element={<Home data = {data}/>} />
-        <Route path='hourly' element={<Hourly data = {data}/>}/>
-        <Route path='daily' element={<Daily data = {data}/>}/>
+        <Route path="/home" element={<Home data = {data} searchValue = {searchValue}/>} />
+        <Route path='hourly' element={<Hourly data = {data} searchValue = {searchValue}/>}/>
+        <Route path='daily' element={<Daily data = {data} searchValue = {searchValue}/>}/>
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
