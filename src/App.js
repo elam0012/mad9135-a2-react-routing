@@ -10,12 +10,18 @@ import NavBar from './components/NavBar/NavBar';
 import Error from './components/pages/Error/Error';
 import { Routes, Route } from 'react-router-dom';
 import useLocalStorage from './hooks/useLocalStorage';
+import Spinner from './components/Spinner/Spinner';
 
 function App() {
 
   const [searchValue, setSearchValue] = useState("")
   const [data, setData] = useState({current: {temp: 55}})
   const [list, setList] = useLocalStorage("last3Searches", [])
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => { // temporarily to test the loader
+    setTimeout(setLoaded, 2000, true)
+  },[])
 
   useEffect(() => { // to setup the current or initial location
     if ('geolocation' in navigator) {
@@ -85,6 +91,8 @@ function App() {
         <Route path='daily' element={<Daily data = {data} searchValue = {searchValue}/>}/>
         <Route path="*" element={<Error />} />
       </Routes>
+
+      {!loaded && <Spinner/>}
     </div>
   );
 }
