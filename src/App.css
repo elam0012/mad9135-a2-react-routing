@@ -2,6 +2,44 @@
   text-align: center;
 }
 
+.App p {
+  margin: 2rem 5rem;
+  font-size: 1.2rem;
+}
+
 .form {
   margin-top: 2rem;
+}
+
+.form input {
+  font-size: 1.5rem;
+}
+
+.form button {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.aside {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  height: 2rem;
+}
+
+.aside button {
+  font-size: 1.3rem;
+  width: 10rem;
+  height: 2.5rem;
+  border-radius: 1rem;
+  font-weight: bold;
+}
+
+.aside p {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(59, 59, 232);
 }

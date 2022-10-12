@@ -1,8 +1,9 @@
 import React from "react"
+import "./Home.css"
 
 export default function Home({data, searchValue}){
   return(
-    <div>
+    <div className="home">
       <h2>The current weather in {searchValue}</h2>
       <p>Temp: {data.current.temp}</p>
       <p>Real Feel: {data.current.feels_like}</p>

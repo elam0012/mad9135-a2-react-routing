@@ -1,4 +1,5 @@
 import React from "react"
+import "./Hourly.css"
 
 export default function Hourly({data, searchValue}){
   // let hourlyData = []
@@ -6,7 +7,7 @@ export default function Hourly({data, searchValue}){
     let hourlyData = data.hourly.slice(0,6)
   // } 
   return(
-    <div>
+    <div className="hourly">
       <h2> The next 6 hours weather forecast in {searchValue} </h2>
       {hourlyData.map((data, index) => {
         return (

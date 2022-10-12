@@ -1,4 +1,5 @@
 import React from "react"
+import "./Daily.css"
 
 export default function Daily({data, searchValue}){
   // let dailyData = []
@@ -6,7 +7,7 @@ export default function Daily({data, searchValue}){
     let dailyData = data.daily.slice(0,6)
   // } 
   return(
-    <div>
+    <div className="daily">
       <h2>The next 6 days weather forecast is {searchValue}</h2>
       {dailyData.map((data, index) => {
         return (

@@ -6,6 +6,7 @@
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+    margin-right: 2rem;
   }
 }
 
@@ -18,6 +19,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-header h1{
+  font-size: 3rem;
 }
 
 @keyframes App-logo-spin {
