@@ -68,12 +68,7 @@ function App() {
     <div className="App">
       <Header/>
       
-
-      <p>Welcome to the best weather app. to find a wether information at any city in the world,
-        please insert the city name including the province and country if needed, And git all the weather
-        information for that city. Enjoy the App!! To start you can either insert your current location or allow the permission 
-        for our app to get it automatically </p>
-        <NavBar/>
+      <NavBar/>
 
       <form className='form' onSubmit={handleSubmit}>
         <input type="text"/>
@@ -83,7 +78,7 @@ function App() {
       <aside className='aside'>
         <p>Previous Serach:</p>
         {list.map((item) => (
-          <button key={item} onClick={handleButton}>{item}</button>
+          <button key={item} onClick={handleButton}><a>{item}</a></button>
         ))}
       </aside>
 
@@ -93,6 +88,11 @@ function App() {
         <Route path='daily' element={<Daily data = {data} searchValue = {searchValue}/>}/>
         <Route path="*" element={<Error />} />
       </Routes>
+
+      <p>Welcome to the best weather app. to find a wether information at any city in the world,
+        please insert the city name including the province and country if needed, And git all the weather
+        information for that city. Enjoy the App!! To start you can either insert your current location or allow the permission 
+        for our app to get it automatically </p>
 
       {!loaded && <Spinner/>}
     </div>
