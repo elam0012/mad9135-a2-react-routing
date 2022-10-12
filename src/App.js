@@ -3,12 +3,13 @@ import Header from "./components/Header/Header"
 import { getGeolocation } from "./map.service"
 import { getForecast } from "./weather.service"
 import {useEffect, useState} from "react"
-import Home from "./components/pages/Home/Home"
+import Home from './components/pages/Home/Home';
+import Current from './components/pages/Current/Current';
 import Daily from "./components/pages/Daily/Daily"
 import Hourly from './components/pages/Hourly/Hourly';
 import NavBar from './components/NavBar/NavBar';
 import Error from './components/pages/Error/Error';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import useLocalStorage from './hooks/useLocalStorage';
 import Spinner from './components/Spinner/Spinner';
 
@@ -18,6 +19,7 @@ function App() {
   const [data, setData] = useState({current: {temp: 55}})
   const [list, setList] = useLocalStorage("last3Searches", [])
   const [loaded, setLoaded] = useState(false)
+  const navigate = useNavigate();
 
   useEffect(() => { // temporarily to test the loader
     setTimeout(setLoaded, 2000, true)
@@ -42,6 +44,7 @@ function App() {
     ev.preventDefault()
     if(ev.target[0].value == "") return
     setSearchValue(ev.target[0].value)
+    navigate("/current")
     if (list.includes(ev.target[0].value)) { // to prevent duplication of buttons and their keys
       document.querySelector(".form").reset()
       return
@@ -83,16 +86,17 @@ function App() {
       </aside>
 
       <Routes>
-        <Route path="/home" element={<Home data = {data} searchValue = {searchValue}/>} />
+        <Route path="/Home" element={<Home data = {data} searchValue = {searchValue}/>} />
+        <Route path="/current" element={<Current data = {data} searchValue = {searchValue}/>} />
         <Route path='hourly' element={<Hourly data = {data} searchValue = {searchValue}/>}/>
         <Route path='daily' element={<Daily data = {data} searchValue = {searchValue}/>}/>
         <Route path="*" element={<Error />} />
       </Routes>
 
-      <p>Welcome to the best weather app. to find a wether information at any city in the world,
+      {/* <p>Welcome to the best weather app. to find a wether information at any city in the world,
         please insert the city name including the province and country if needed, And git all the weather
         information for that city. Enjoy the App!! To start you can either insert your current location or allow the permission 
-        for our app to get it automatically </p>
+        for our app to get it automatically </p> */}
 
       {!loaded && <Spinner/>}
     </div>

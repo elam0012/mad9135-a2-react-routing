@@ -4,12 +4,11 @@ import "./Home.css"
 export default function Home({data, searchValue}){
   return(
     <div className="home">
-      <h2>The current weather in {searchValue}</h2>
-      <p>Temp: {data.current.temp}</p>
-      <p>Real Feel: {data.current.feels_like}</p>
-      <p>Sunrise: {new Date(data.current.sunrise * 1000).toLocaleString("en-CA")}</p>
-      <p>Sunset: {new Date(data.current.sunset * 1000).toLocaleString("en-CA")}</p>
-      {/* <img src = {`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`} /> */}
+      <p>Welcome to the best weather app. to find a wether information at any city in the world,
+        please insert the city name including the province and country if needed, And git all the weather
+        information for that city. Enjoy the App!! To start you can either insert your current location or allow the permission 
+        for our app to get it automatically.
+      </p>
     </div>
   )
 }
