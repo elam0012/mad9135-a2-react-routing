@@ -86,18 +86,12 @@ function App() {
       </aside>
 
       <Routes>
-        <Route path="/Home" element={<Home data = {data} searchValue = {searchValue}/>} />
+        <Route path="/" element={<Home data = {data} searchValue = {searchValue}/>} />
         <Route path="/current" element={<Current data = {data} searchValue = {searchValue}/>} />
         <Route path='hourly' element={<Hourly data = {data} searchValue = {searchValue}/>}/>
         <Route path='daily' element={<Daily data = {data} searchValue = {searchValue}/>}/>
         <Route path="*" element={<Error />} />
       </Routes>
-
-      {/* <p>Welcome to the best weather app. to find a wether information at any city in the world,
-        please insert the city name including the province and country if needed, And git all the weather
-        information for that city. Enjoy the App!! To start you can either insert your current location or allow the permission 
-        for our app to get it automatically </p> */}
-
       {!loaded && <Spinner/>}
     </div>
   );
