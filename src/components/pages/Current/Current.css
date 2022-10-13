@@ -1,9 +1,10 @@
 .current h2 {
-  font-size: 2.5rem;
-  color: rgb(171, 24, 24);
+  font-size: 2rem;
+  color: #FF9102;
+  margin: 1.5rem;
 }
 
-.current-ul{
+#current-ul{
   list-style: none;
   flex-direction: column;
   display: flex;
@@ -11,10 +12,12 @@
   margin: 0 auto;
   padding: 2rem;
   border-radius: 2rem;
-  background-color: rgba(253, 194, 1, 0.993);
+  background-color: #282C34;
+  /* background-color: rgba(253, 194, 1, 0.993); */
   font-size: 1.5rem;
   align-items:center;
   gap: 0.5rem;
+  color: white;
 }
 
 #current-top{
@@ -23,8 +26,9 @@
   align-items: center;
 }
 
-.current-ul span{
+#current-ul span{
   font-weight: bold;
+  color: white;
 }
 
 

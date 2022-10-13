@@ -11,12 +11,18 @@ export default function Hourly({data, searchValue}){
       <h2> The next 6 hours weather forecast in {searchValue} </h2>
       {hourlyData.map((data, index) => {
         return (
-          <ul key={index}>
-            <li key={data.dt}>Date, Time: {new Date(data.dt * 1000).toLocaleString("en-CA")}</li>
-            <li key={data.sunrise}>Temp: {data.temp}</li>
-            <li key={data.sunset}>Real Feel: {data.feels_like}</li>
-            <li key={data.weather[0].description + "index"}>Description: {data.weather[0].description}</li>
-            <li key={data.weather[0].icon + "index"}><img src = {`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} /></li>
+          <ul key={index} id="hourly-ul">
+            <div id="hourly-top">
+              <div>
+                <li key={data.weather[0].icon + "index"}><img id="hourly-img" src = {`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} /></li>
+              </div >
+              <div id="hourly-temp-feel">
+                <li key={data.sunrise}><span>Temp:</span> {data.temp}</li>
+                <li key={data.sunset}><span>Real Feel:</span> {data.feels_like}</li>
+              </div>
+            </div>
+            <li key={data.dt}><span>Date-Time:</span> {new Date(data.dt * 1000).toLocaleString("en-CA")}</li>
+            <li key={data.weather[0].description + "index"}><span>{data.weather[0].description}</span></li>
           </ul>
         )
       })}

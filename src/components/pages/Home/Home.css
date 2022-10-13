@@ -1,0 +1,12 @@
+.home h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #FF9102;
+  font-size: 2rem;
+}
+
+.home p {
+  margin: 0.5rem 3rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
