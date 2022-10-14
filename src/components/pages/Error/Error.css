@@ -1,0 +1,13 @@
+#error {
+  background-color: #282C34;
+  width: 100vw;
+  height: 100vh; 
+  position: absolute;
+  top: 10vh;
+}
+
+#error h1 {
+  color: rgb(197, 12, 12);
+  margin-top: 20vh;
+  font-size: 4rem;
+}
