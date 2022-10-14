@@ -44,10 +44,6 @@
   align-items: flex-start;
 }
 
-#daily-img {
-  /* width: 10rem; */
-}
-
 #daily-date {
   font-size: 1.2rem;
   margin-top: 1rem;
