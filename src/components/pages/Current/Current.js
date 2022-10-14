@@ -2,8 +2,8 @@ import React from "react"
 import "./Current.css"
 
 export default function Current({data, searchValue}){
-  const temp = parseInt(data.current.temp)
-  const feel = parseInt(data.current.feels_like)
+  const temp = `${parseInt(data.current.temp)} \u00B0`
+  const feel = `${parseInt(data.current.feels_like)} \u00B0`
   return(
     <div className="current">
       <h2>The current weather in {searchValue}</h2>

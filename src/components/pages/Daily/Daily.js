@@ -10,10 +10,10 @@ export default function Daily({data, searchValue}){
     <div className="daily">
       <h2>The next 6 days weather forecast is {searchValue}</h2>
       {dailyData.map((data, index) => {
-        const dayTemp = parseInt(data.temp.day)
-        const nightTemp = parseInt(data.temp.night)
-        const dayFeel = parseInt(data.feels_like.day)
-        const nightFeel = parseInt(data.feels_like.night)
+        const dayTemp = `${parseInt(data.temp.day)} \u00B0`
+        const nightTemp = `${parseInt(data.temp.night)} \u00B0`
+        const dayFeel = `${parseInt(data.feels_like.day)} \u00B0`
+        const nightFeel = `${parseInt(data.feels_like.night)} \u00B0`
         return (
           <ul key={index} id="daily-ul">
             <div id="daily-top">

@@ -10,8 +10,8 @@ export default function Hourly({data, searchValue}){
     <div className="hourly">
       <h2> The next 6 hours weather forecast in {searchValue} </h2>
       {hourlyData.map((data, index) => {
-        const temp = parseInt(data.temp)
-        const feel = parseInt(data.feels_like)
+        const temp = `${parseInt(data.temp)} \u00B0`
+        const feel = `${parseInt(data.feels_like)} \u00B0`
         return (
           <ul key={index} id="hourly-ul">
             <div id="hourly-top">
