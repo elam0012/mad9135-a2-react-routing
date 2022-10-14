@@ -11,10 +11,12 @@ export default function Current({data, searchValue}){
   } else {
     const temp = `${parseInt(data.current.temp)} \u00B0`
     const feel = `${parseInt(data.current.feels_like)} \u00B0`
+    const description =  data.current.weather[0].description.toUpperCase()
     return(
       <div className="current">
         <h2>The current weather in {searchValue}</h2>
         <ul id="current-ul">
+          <li id="description"><span>{description}</span></li>
           <div id="current-top">
             <div>
               <li ><img src = {`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`} id="current-img" /></li>
@@ -24,8 +26,8 @@ export default function Current({data, searchValue}){
               <li><span>Real Feel: </span> {feel}</li>
             </div>
           </div>
-          <li><span>Sunrise:</span> {new Date(data.current.sunrise * 1000).toLocaleString("en-CA")}</li>
-          <li><span>Sunset: </span>{new Date(data.current.sunset * 1000).toLocaleString("en-CA")}</li>
+          <li id="sunrise"><span>Sunrise:</span> {new Date(data.current.sunrise * 1000).toLocaleString("en-CA")}</li>
+          <li id="sunset"><span>Sunset: </span>{new Date(data.current.sunset * 1000).toLocaleString("en-CA")}</li>
         </ul>
       </div>
     )

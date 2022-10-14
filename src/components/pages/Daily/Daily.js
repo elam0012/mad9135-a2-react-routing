@@ -18,21 +18,24 @@ export default function Daily({data, searchValue}){
           const nightTemp = `${parseInt(data.temp.night)} \u00B0`
           const dayFeel = `${parseInt(data.feels_like.day)} \u00B0`
           const nightFeel = `${parseInt(data.feels_like.night)} \u00B0`
+          const description = data.weather[0].description.toUpperCase()
           return (
             <ul key={index} id="daily-ul">
+              <li key={data.weather[0].description + "index"}><span id="daily-description">{description}</span></li>
+              <div id="daily-header">
+                <li key={data.weather[0].icon + "index"} id="test"><img id="daily-img" src = {`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} /></li>
+              </div>
               <div id="daily-top">
-                <div>
-                  <li key={data.weather[0].icon + "index"}><img id="daily-img" src = {`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} /></li>
-                </div>
                 <div id="daily-temp-feel">
                   <li key={data.temp.day}><span>Day Temp: </span>{dayTemp}</li>
                   <li key={data.sunrise}><span>Night Temp: </span>{nightTemp}</li>
                 </div>
-              </div>
+                <div>
                   <li key={data.sunset}><span>Day Real Feel: </span>{dayFeel}</li>
                   <li key={data.moon_phase}><span>Night Real Feel: </span>{nightFeel}</li>
-              <li key={data.dt}><span>Date-Time: </span>{new Date(data.dt * 1000).toLocaleString("en-CA")}</li>
-              <li key={data.weather[0].description + "index"}><span>{data.weather[0].description}</span></li>
+                </div>
+              </div>
+              <li key={data.dt} id="daily-date"><span>Date-Time: </span>{new Date(data.dt * 1000).toLocaleString("en-CA")}</li>
             </ul>
           )
         })}

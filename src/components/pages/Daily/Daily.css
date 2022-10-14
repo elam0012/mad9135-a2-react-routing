@@ -14,11 +14,12 @@
   border-radius: 2rem;
   background-color: #282C34;
   /* background-color: rgba(253, 194, 1, 0.993); */
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   align-items: center;
-  gap: 1rem;
+  /* gap: 1rem; */
   margin-bottom: 2rem;
   color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 
 #daily-top {
@@ -32,14 +33,31 @@
   color: white;
 }
 
+#daily-description {
+  font-size: 1.5rem;
+}
+
 
 #daily-temp-feel {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
 }
 
 #daily-img {
-  width: 10rem;
+  /* width: 10rem; */
+}
+
+#daily-date {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+#daily-header {
+  display: flex;
+  align-items: center;
+}
+
+#test {
+  flex-grow: 2;
 }

@@ -16,8 +16,10 @@ export default function Hourly({data, searchValue}){
         {hourlyData.map((data, index) => {
           const temp = `${parseInt(data.temp)} \u00B0`
           const feel = `${parseInt(data.feels_like)} \u00B0`
+          const description = data.weather[0].description.toUpperCase()
           return (
             <ul key={index} id="hourly-ul">
+              <li key={data.weather[0].description + "index"}><span id="description">{description}</span></li>
               <div id="hourly-top">
                 <div>
                   <li key={data.weather[0].icon + "index"}><img id="hourly-img" src = {`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} /></li>
@@ -27,8 +29,7 @@ export default function Hourly({data, searchValue}){
                   <li key={data.sunset}><span>Real Feel:</span> {feel}</li>
                 </div>
               </div>
-              <li key={data.dt}><span>Date-Time:</span> {new Date(data.dt * 1000).toLocaleString("en-CA")}</li>
-              <li key={data.weather[0].description + "index"}><span>{data.weather[0].description}</span></li>
+              <li key={data.dt} id="hourly-date"><span>Date-Time:</span> {new Date(data.dt * 1000).toLocaleString("en-CA")}</li>
             </ul>
           )
         })}
