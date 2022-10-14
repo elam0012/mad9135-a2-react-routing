@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/elam0012/mad9135-a2-react-routing/static/css/main.160a79a5.css",
+    "main.js": "/elam0012/mad9135-a2-react-routing/static/js/main.43e82cd3.js",
+    "static/js/787.64994458.chunk.js": "/elam0012/mad9135-a2-react-routing/static/js/787.64994458.chunk.js",
+    "static/media/logo.png": "/elam0012/mad9135-a2-react-routing/static/media/logo.a370bad422cbddd235ca.png",
+    "index.html": "/elam0012/mad9135-a2-react-routing/index.html",
+    "main.160a79a5.css.map": "/elam0012/mad9135-a2-react-routing/static/css/main.160a79a5.css.map",
+    "main.43e82cd3.js.map": "/elam0012/mad9135-a2-react-routing/static/js/main.43e82cd3.js.map",
+    "787.64994458.chunk.js.map": "/elam0012/mad9135-a2-react-routing/static/js/787.64994458.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.160a79a5.css",
+    "static/js/main.43e82cd3.js"
+  ]
+}
