@@ -22,7 +22,6 @@ function App() {
   useEffect(() => { // to setup the current or initial location
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) =>{
-      console.log(position.coords)
       const location = { lon: position.coords.longitude, lat: position.coords.latitude }
       getForecast({coord: location, units: 'metric'})
         .then(forecast => setData(forecast))

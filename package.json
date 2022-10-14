@@ -13,10 +13,10 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://github.com/elam0012/mad9135-a2-react-routing",
+  "homepage": "https://elam0012.github.io/mad9135-a2-react-routing/",
   "scripts": {
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
+    "predeploy":"yarn build",
+    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
