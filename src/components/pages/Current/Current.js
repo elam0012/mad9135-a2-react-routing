@@ -1,12 +1,13 @@
 import React from "react"
 import "./Current.css"
 import {useNavigate } from 'react-router-dom';
+import Spinner from "../../Spinner/Spinner";
 
 export default function Current({data, searchValue}){
   const navigate = useNavigate();
   if(!data || !searchValue || !data.current.weather) {
     navigate("/")
-    return 
+    return <Spinner/>
   } else {
     const temp = `${parseInt(data.current.temp)} \u00B0`
     const feel = `${parseInt(data.current.feels_like)} \u00B0`

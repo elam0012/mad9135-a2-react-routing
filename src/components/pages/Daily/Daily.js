@@ -1,12 +1,13 @@
 import React from "react"
 import "./Daily.css"
 import {useNavigate } from 'react-router-dom';
+import Spinner from "../../Spinner/Spinner";
 
 export default function Daily({data, searchValue}){
   const navigate = useNavigate();
   if(!data || !searchValue || !data.daily) {
     navigate("/")
-    return 
+    return <Spinner/>
   } else {
     let dailyData = data.daily.slice(0,6)
     return(

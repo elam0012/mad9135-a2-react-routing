@@ -1,12 +1,13 @@
 import React from "react"
 import "./Hourly.css"
 import {useNavigate } from 'react-router-dom';
+import Spinner from "../../Spinner/Spinner";
 
 export default function Hourly({data, searchValue}){
   const navigate = useNavigate();
   if(!data || !searchValue || !data.hourly) {
     navigate("/")
-    return 
+    return <Spinner/>
   } else {
     let hourlyData = data.hourly.slice(0,6)
     return(

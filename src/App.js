@@ -18,12 +18,12 @@ function App() {
   const [searchValue, setSearchValue] = useState("")
   const [data, setData] = useState("")
   const [list, setList] = useLocalStorage("last3Searches", [])
-  const [loaded, setLoaded] = useState(false)
+  // const [loaded, setLoaded] = useState(false)
   const navigate = useNavigate();
 
-  useEffect(() => { // temporarily to test the loader
-    setTimeout(setLoaded, 2000, true)
-  },[])
+  // useEffect(() => { // temporarily to test the loader
+  //   setTimeout(setLoaded, 2000, true)
+  // },[])
 
   useEffect(() => { // to setup the current or initial location
     if ('geolocation' in navigator) {
@@ -56,6 +56,7 @@ function App() {
 
   function handleButton(ev) {
     setSearchValue(ev.target.innerText)
+    navigate("/current")
   }
 
   useEffect(() => {
@@ -75,7 +76,7 @@ function App() {
 
       <form className='form' onSubmit={handleSubmit}>
         <input type="text"/>
-        <button type='submit'>Submit</button>
+        <button type='submit'>Search</button>
       </form>
 
       <aside className='aside'>
@@ -92,7 +93,6 @@ function App() {
         <Route path='daily' element={<Daily data = {data} searchValue = {searchValue}/>}/>
         <Route path="*" element={<Error />} />
       </Routes>
-      {!loaded && <Spinner/>}
     </div>
   );
 }
