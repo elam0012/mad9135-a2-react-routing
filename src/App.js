@@ -16,7 +16,7 @@ import Spinner from './components/Spinner/Spinner';
 function App() {
 
   const [searchValue, setSearchValue] = useState("")
-  const [data, setData] = useState({current: {temp: 55}})
+  const [data, setData] = useState("")
   const [list, setList] = useLocalStorage("last3Searches", [])
   const [loaded, setLoaded] = useState(false)
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ function App() {
       })
     } 
   //   else {
-  //   console.log("GeoLocation is not available")/* geolocation IS NOT available */
+  //   navigate("/")
   // }
 }, [])
 
