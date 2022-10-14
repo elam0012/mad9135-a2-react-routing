@@ -11,19 +11,13 @@ import NavBar from './components/NavBar/NavBar';
 import Error from './components/pages/Error/Error';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import useLocalStorage from './hooks/useLocalStorage';
-import Spinner from './components/Spinner/Spinner';
 
 function App() {
 
   const [searchValue, setSearchValue] = useState("")
   const [data, setData] = useState("")
   const [list, setList] = useLocalStorage("last3Searches", [])
-  // const [loaded, setLoaded] = useState(false)
   const navigate = useNavigate();
-
-  // useEffect(() => { // temporarily to test the loader
-  //   setTimeout(setLoaded, 2000, true)
-  // },[])
 
   useEffect(() => { // to setup the current or initial location
     if ('geolocation' in navigator) {
@@ -35,10 +29,7 @@ function App() {
       setSearchValue("your location")
       })
     } 
-  //   else {
-  //   navigate("/")
-  // }
-}, [])
+  }, [])
 
   function handleSubmit(ev) {
     ev.preventDefault()
@@ -71,21 +62,17 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      
       <NavBar/>
-
       <form className='form' onSubmit={handleSubmit}>
         <input type="text"/>
         <button type='submit'>Search</button>
       </form>
-
       <aside className='aside'>
         <p>Previous Serach:</p>
         {list.map((item) => (
           <button key={item} onClick={handleButton}><a>{item}</a></button>
         ))}
       </aside>
-
       <Routes>
         <Route path="/" element={<Home data = {data} searchValue = {searchValue}/>} />
         <Route path="/current" element={<Current data = {data} searchValue = {searchValue}/>} />

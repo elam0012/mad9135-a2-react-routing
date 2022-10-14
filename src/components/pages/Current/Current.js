@@ -17,6 +17,7 @@ export default function Current({data, searchValue}){
         <h2>The current weather in {searchValue}</h2>
         <ul id="current-ul">
           <li id="description"><span>{description}</span></li>
+          <li ><span>Current Time:</span> {new Date(data.current.dt * 1000).toLocaleString("en-CA")}</li>
           <div id="current-top">
             <div>
               <li ><img src = {`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`} id="current-img" /></li>
